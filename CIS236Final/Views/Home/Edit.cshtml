@@ -1,26 +1,39 @@
 ﻿@model CIS236Final.Models.Product
 
+<!-- Container with top margin -->
 <div class="container mt-3">
     <h2>Edit</h2>
 
+    <!-- Edit form with validation summary -->
     <form asp-action="Edit">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <!-- Hidden field for product ID -->
         <div class="form-group">
             <input type="hidden" asp-for="Id" />
+        </div>
+
+        <!-- Form group for product Name -->
+        <div class="form-group">
             <label asp-for="Name" class="control-label"></label>
             <input asp-for="Name" class="form-control" />
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
+
+        <!-- Form group for product Price -->
         <div class="form-group">
             <label asp-for="Price" class="control-label"></label>
             <input asp-for="Price" class="form-control" />
             <span asp-validation-for="Price" class="text-danger"></span>
         </div>
+
+        <!-- Save button -->
         <div class="form-group">
             <input type="submit" value="Save" class="btn btn-primary" />
         </div>
     </form>
 
+    <!-- Link to go back to the product list -->
     <div>
         <a asp-action="Index">Back to List</a>
     </div>

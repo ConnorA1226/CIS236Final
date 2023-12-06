@@ -1,27 +1,39 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character set and viewport -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title tag with dynamic content -->
     <title>@ViewData["Title"] - CIS236Final</title>
+    <!-- Links to stylesheets -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CIS236Final.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
+        <!-- Navigation bar with Bootstrap classes -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <!-- Container to wrap the navigation bar content -->
             <div class="container">
+                <!-- Brand link -->
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CIS236Final</a>
+
+                <!-- Responsive toggle button for smaller screens -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <!-- Navigation links -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
+                            <!-- Home link -->
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
+                            <!-- Add Item link -->
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Create">Add Item</a>
                         </li>
                     </ul>
@@ -30,18 +42,20 @@
         </nav>
     </header>
 
+    <!-- Content container with top margin -->
     <div class="container mt-4">
         <main role="main" class="pb-3">
-            <!-- Content container -->
+            <!-- Placeholder for content rendered by RenderBody() -->
             @RenderBody()
         </main>
     </div>
 
+    <!-- Footer with copyright notice and Add Item link -->
     <footer class="border-top footer text-muted text-center py-3">
-        <!-- Footer content -->
         &copy; 2023 - CIS236Final - <a asp-area="" asp-controller="Home" asp-action="Create">Add Item</a>
     </footer>
 
+    <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
