@@ -15,7 +15,6 @@ namespace CIS236Final.Models
         {
         }
 
-        // DbSet representing the 'Products' table in the database
         public DbSet<Product> Products { get; set; }
 
         // Override the default behavior when the model is being created

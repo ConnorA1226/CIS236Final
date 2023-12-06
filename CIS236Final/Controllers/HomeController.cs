@@ -30,7 +30,6 @@ namespace CIS236Final.Controllers
                 products = products.Where(p => p.Price == filterPrice.Value);
             }
 
-            // Pass the list of filtered products to the view
             return View(products.ToList());
         }
 
@@ -44,32 +43,28 @@ namespace CIS236Final.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            // Check if the model is valid before saving
+            
             if (ModelState.IsValid)
             {
                 // Add the new product to the database
                 _context.Products.Add(product);
                 _context.SaveChanges();
-                return RedirectToAction("Index"); // Redirect to the product list
+                return RedirectToAction("Index");
             }
 
-            // If the model is not valid, return to the create view with validation errors
             return View(product);
         }
 
         // Action method to display the form for editing an existing product
         public IActionResult Edit(int id)
         {
-            // Find the product with the specified id
             var product = _context.Products.Find(id);
 
-            // If the product is not found, return a not found result
             if (product == null)
             {
                 return NotFound();
             }
 
-            // Pass the product to the view for editing
             return View(product);
         }
 
@@ -89,26 +84,22 @@ namespace CIS236Final.Controllers
                 // Update the product in the database
                 _context.Update(product);
                 _context.SaveChanges();
-                return RedirectToAction("Index"); // Redirect to the product list
+                return RedirectToAction("Index");
             }
 
-            // If the model is not valid, return to the edit view with validation errors
             return View(product);
         }
 
         // Action method to display the confirmation page for deleting a product
         public IActionResult Delete(int id)
         {
-            // Find the product with the specified id
             var product = _context.Products.Find(id);
 
-            // If the product is not found, return a not found result
             if (product == null)
             {
                 return NotFound();
             }
 
-            // Pass the product to the view for confirmation
             return View(product);
         }
 
@@ -117,10 +108,8 @@ namespace CIS236Final.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            // Find the product with the specified id
             var product = _context.Products.Find(id);
 
-            // If the product is not found, return a not found result
             if (product == null)
             {
                 return NotFound();
@@ -130,7 +119,6 @@ namespace CIS236Final.Controllers
             _context.Products.Remove(product);
             _context.SaveChanges();
 
-            // Redirect to the product list after deletion
             return RedirectToAction("Index");
         }
     }

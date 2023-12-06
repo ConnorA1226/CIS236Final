@@ -1,5 +1,4 @@
-﻿// Product.cs
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CIS236Final.Models
 {
